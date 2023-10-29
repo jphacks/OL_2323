@@ -14,4 +14,10 @@ class Seeker extends Model
         'career',
         'introduction',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
 }

@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('matchings', function (Blueprint $table) {
+        Schema::create('farmers', function (Blueprint $table) {
             $table->id();
-
-            $table->foreignId('farmer_id')->constrained()->onDelete('cascade');
-            $table->foreignId('seeker_id')->constrained()->onDelete('cascade');
-            $table->integer('matching_status');
-            
+            $table->unsignedBigInteger('user_id')->unique();
+            $table->string('image');
+            $table->text('introduction');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -27,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('matchings');
+        Schema::dropIfExists('farmers');
     }
 };

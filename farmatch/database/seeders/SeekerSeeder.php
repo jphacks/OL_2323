@@ -15,13 +15,13 @@ class SeekerSeeder extends Seeder
     {
         Seeker::create([
             'user_id' => 2,
-            'career' => 'ウェブ開発者',
+            'background' => 'ウェブ開発者',
             'introduction' => '使いやすいウェブサイトを構築するための経験豊富なウェブ開発者です。',
         ]);
 
         Seeker::create([
             'user_id' => 4,
-            'career' => 'グラフィックデザイナー',
+            'background' => 'グラフィックデザイナー',
             'introduction' => 'デジタルおよび印刷メディア向けの視覚的に魅力的なデザインを得意としています。',
         ]);
     }

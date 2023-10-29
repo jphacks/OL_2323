@@ -49,7 +49,20 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function farmers() {
+
+public function farmerProfile() {
+    return $this->hasOne(Farmer::class, 'user_id');
+}
+
+public function seekerProfile() {
+    return $this->hasOne(Seeker::class, 'user_id');
+}
+
+public function profile() {
+    return $this->status === 0 ? $this->farmerProfile() : $this->seekerProfile();
+}
+
+public function farmers() {
         return $this->hasOne(Farmer::class);
     }
 

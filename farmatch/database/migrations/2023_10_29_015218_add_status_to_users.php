@@ -11,15 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('farmers', function (Blueprint $table) {
-            $table->id();
-
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('image_path')->nullable();
-            $table->text('introduction')->nullable();
-            
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedTinyInteger('status')->default(0); // 0 for farmers, 1 for seekers
         });
+        
     }
 
     /**
@@ -27,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('farmers');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };
