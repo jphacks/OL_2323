@@ -15,12 +15,12 @@ class FarmerSeeder extends Seeder
     {
         //
         Farmer::create([
-            'user_id' => 3,
+            'user_id' => 1,
             'introduction' => '当ファームでは新鮮な野菜を栽培しています。',
         ]);
 
         Farmer::create([
-            'user_id' => 4,
+            'user_id' => 3,
             'introduction' => '自然豊かな環境で育てた有機野菜を提供しています。',
         ]);
 
