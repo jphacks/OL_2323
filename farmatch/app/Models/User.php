@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Farmer;
+use App\Models\Seeker;
 
 class User extends Authenticatable
 {
@@ -46,4 +48,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function farmers() {
+        return $this->hasOne(Farmer::class);
+    }
+
+    public function seekers() {
+        return $this->hasOne(Seeker::class);
+    }
 }
