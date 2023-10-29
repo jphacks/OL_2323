@@ -42,4 +42,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // User.php
+
+public function farmerProfile() {
+    return $this->hasOne(Farmer::class, 'user_id');
+}
+
+public function seekerProfile() {
+    return $this->hasOne(Seeker::class, 'user_id');
+}
+
+public function profile() {
+    return $this->status === 0 ? $this->farmerProfile() : $this->seekerProfile();
+}
+
 }

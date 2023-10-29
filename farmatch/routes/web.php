@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Controllers\FarmerController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+// Route::get('/farmer', 'App\Http\Controllers\FarmerController@index');
+
+Route::get('/farmer', [\App\Http\Controllers\FarmerController::class, 'index']);
+
+
