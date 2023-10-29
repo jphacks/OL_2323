@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h2>農家リスト</h2>
+        <h2>後継者リスト</h2>
         <table class="table table-bordered">
             <thead>
                 <tr>
@@ -13,14 +13,14 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($farmers as $farmer)
+                @foreach($seekers as $seeker)
                 <tr>
-                    <td>{{ $farmer->id }}</td>
-                    <td>{{ $farmer->name }}</td>
-                    <td>{{ $farmer->career }}</td>
-                    <td>{{ $farmer->description }}</td>
+                    <td>{{ $seeker->id }}</td>
+                    <td>{{ $seeker->name }}</td>
+                    <td>{{ $seeker->career }}</td>
+                    <td>{{ $seeker->description }}</td>
                     <td>
-                        <a href="{{ route('farmerindex.show', $farmer->id) }}" class="btn btn-primary">View</a>
+                        <a href="{{ route('seekerindex.show', $seeker->id) }}" class="btn btn-primary">View</a>
                     </td>
                 </tr>
                 @endforeach

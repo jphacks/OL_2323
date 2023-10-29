@@ -10,7 +10,6 @@ class FarmerController extends Controller
 {
     public function index() {
         $farmers = Farmer::all();
-        dd($farmers);
         return view('farmer.index', compact('farmers'));
     }
     

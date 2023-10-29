@@ -5,19 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Seeker extends Model
+class ConditionTag extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
-        'career',
-        'introduction',
+        'name',
+        'is_farmer',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'user_id');
-    }
-
 }

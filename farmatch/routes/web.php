@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Controllers\FarmerController;
+use \Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,4 +23,9 @@ Route::get('/', function () {
 
 Route::get('/farmer', [\App\Http\Controllers\FarmerController::class, 'index']);
 
+Route::get('/seeker', [\App\Http\Controllers\SeekerController::class, 'index']);
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

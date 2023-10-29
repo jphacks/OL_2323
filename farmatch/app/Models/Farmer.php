@@ -11,7 +11,7 @@ class Farmer extends Model
 
     protected $fillable = [
         'user_id',
-        'image',
+        'image_path',
         'introduction'
     ];
 
@@ -19,4 +19,8 @@ class Farmer extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
+
+
+
 }
