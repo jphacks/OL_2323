@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Controllers\FarmerController;
+use \Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\DetailController;
+use App\Http\Controllers\SeekerController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,3 +21,17 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+
+Route::get('/farmer', [\App\Http\Controllers\FarmerController::class, 'index']);
+
+Route::get('/seeker', [SeekerController::class, 'index']);
+
+Route::get('/seeker/{id}', [SeekerController::class, 'show'])->name('seekerindex.show');
+
+Route::get('/users/{user_id}', [DetailController::class, 'show_detail']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
