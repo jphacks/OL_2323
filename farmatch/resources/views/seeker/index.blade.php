@@ -16,9 +16,8 @@
                 @foreach($seekers as $seeker)
                 <tr>
                     <td>{{ $seeker->id }}</td>
-                    <td>{{ $seeker->name }}</td>
-                    <td>{{ $seeker->career }}</td>
-                    <td>{{ $seeker->description }}</td>
+                    <td>{{ $seeker->background }}</td>
+                    <td>{{ $seeker->introduction }}</td>
                     <td>
                         <a href="{{ route('seekerindex.show', $seeker->id) }}" class="btn btn-primary">View</a>
                     </td>

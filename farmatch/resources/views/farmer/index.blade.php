@@ -16,11 +16,10 @@
                 @foreach($farmers as $farmer)
                 <tr>
                     <td>{{ $farmer->id }}</td>
-                    <td>{{ $farmer->name }}</td>
-                    <td>{{ $farmer->career }}</td>
-                    <td>{{ $farmer->description }}</td>
+                    <td>{{ $farmer->image_path }}</td>
+                    <td>{{ $farmer->introduction }}</td>
                     <td>
-                        <a href="{{ route('farmerindex.show', $farmer->id) }}" class="btn btn-primary">View</a>
+                        <a href="{{ route('show_detail', ['user_id' => $farmer->id]) }}" class="btn btn-primary">詳細へ</a>
                     </td>
                 </tr>
                 @endforeach

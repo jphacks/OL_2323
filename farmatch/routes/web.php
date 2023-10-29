@@ -1,8 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Models\Controllers\FarmerController;
 use \Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\DetailController;
+use App\Http\Controllers\SeekerController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,12 +23,14 @@ Route::get('/', function () {
 });
 
 
-// Route::get('/farmer', 'App\Http\Controllers\FarmerController@index');
 
 Route::get('/farmer', [\App\Http\Controllers\FarmerController::class, 'index']);
 
-Route::get('/seeker', [\App\Http\Controllers\SeekerController::class, 'index']);
+Route::get('/seeker', [SeekerController::class, 'index']);
 
+Route::get('/seeker/{id}', [SeekerController::class, 'show'])->name('seekerindex.show');
+
+Route::get('/users/{user_id}', [DetailController::class, 'show_detail']);
 
 Auth::routes();
 

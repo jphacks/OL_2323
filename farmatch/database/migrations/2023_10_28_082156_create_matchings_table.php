@@ -12,17 +12,24 @@ return new class extends Migration
 
 public function up()
 {
+    // Schema::create('matchings', function (Blueprint $table) {
+    //     $table->id();
+    //     $table->unsignedBigInteger('user_id1');
+    //     $table->unsignedBigInteger('user_id2');
+    //     $table->string('matching_status');
+    //     $table->foreign('user_id1')->references('id')->on('farmers')->onDelete('cascade');
+    //     $table->foreign('user_id2')->references('id')->on('seekers')->onDelete('cascade');
+
+    //     $table->timestamps();
+    // });
     Schema::create('matchings', function (Blueprint $table) {
         $table->id();
-        $table->unsignedBigInteger('user_id1');
-        $table->unsignedBigInteger('user_id2');
-        $table->string('matching_status');
-
-        $table->foreign('user_id1')->references('id')->on('farmers')->onDelete('cascade');
-        $table->foreign('user_id2')->references('id')->on('seekers')->onDelete('cascade');
-
+        $table->unsignedBigInteger('farmer_id');
+        $table->unsignedBigInteger('seeker_id');
+        $table->integer('matching_status');
         $table->timestamps();
     });
+    
 }
 
 

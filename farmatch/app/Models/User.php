@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Farmer;
+use App\Models\Seeker;
 
 class User extends Authenticatable
 {
@@ -47,7 +49,6 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    // User.php
 
 public function farmerProfile() {
     return $this->hasOne(Farmer::class, 'user_id');
@@ -61,4 +62,11 @@ public function profile() {
     return $this->status === 0 ? $this->farmerProfile() : $this->seekerProfile();
 }
 
+public function farmers() {
+        return $this->hasOne(Farmer::class);
+    }
+
+    public function seekers() {
+        return $this->hasOne(Seeker::class);
+    }
 }
