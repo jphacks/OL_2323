@@ -19,7 +19,8 @@
                     <td>{{ $farmer->image_path }}</td>
                     <td>{{ $farmer->introduction }}</td>
                     <td>
-                        <a href="{{ route('show_detail', ['user_id' => $farmer->id]) }}" class="btn btn-primary">詳細へ</a>
+                        {{-- <a href="{{ route('show_detail', ['user_id' => $farmer->id]) }}" class="btn btn-primary">詳細へ</a> --}}
+                        <a class="btn btn-primary">詳細へ</a>
                     </td>
                 </tr>
                 @endforeach
